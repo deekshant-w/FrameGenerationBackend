@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from main.resources.export import *
+from main.resources.export import Generator
+gen = Generator(1)
+base = Path("main/resources")
+gen = torch.load(base/'gen.pt').to('cpu')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +30,7 @@ SECRET_KEY = 'django-insecure-k0!r+cm^nfj+xoc^gr+uck))i)$l84xja*fqzit7j)5*3-_%6-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
