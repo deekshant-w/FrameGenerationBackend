@@ -28,5 +28,4 @@ if __name__ == '__main__':
     gen = Generator(1)
     base = Path("main/resources")
     gen = torch.load(base/'gen.pt', map_location=torch.device('cpu')).to('cpu')
-    gen.eval()
     main()

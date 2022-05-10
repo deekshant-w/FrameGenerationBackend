@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 import os
 from pathlib import Path
 from base64 import b64encode
@@ -69,6 +69,8 @@ def frontTest(request):
 
     frames = [getSrcFromNumpy(frame[0]) for frame in frames]
     
-    real_input = real_input.detach().cpu().numpy()[0,0]
+    real_input = real_input.detach().cpu().numpy()[0]
     real_input = [getSrcFromNumpy(real_input[i]) for i in range(9)]
-    return render(request, 'main/frontTest.html', {'data':{'real_output':real_output, 'real_input':real_input, 'frames':frames}})
+    data = {'data':{'real_output':real_output, 'real_input':real_input, 'frames':frames}}
+    # return render(request, 'main/frontTest.html', data)
+    return JsonResponse(data)
