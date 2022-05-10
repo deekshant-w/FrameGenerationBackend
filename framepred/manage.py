@@ -19,4 +19,14 @@ def main():
 
 
 if __name__ == '__main__':
+    from pathlib import Path
+    from main.resources.export import *
+    import torch
+    from main.resources.export import Generator
+    import convlstm
+
+    gen = Generator(1)
+    base = Path("main/resources")
+    gen = torch.load(base/'gen.pt', map_location=torch.device('cpu')).to('cpu')
+    gen.eval()
     main()

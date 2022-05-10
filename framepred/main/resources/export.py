@@ -1,5 +1,6 @@
 from torch import nn
-from .convlstm import *
+from main.resources.convlstm import *
+import torch
 
 badListVar = None
 class PrintLayer(nn.Module):
@@ -175,3 +176,6 @@ class Critic(nn.Module):
         data = torch.cat((prev_u,frame_u),dim=2)
         data = data.view([self.batch_size, 10, 1, 64, 64])
         return self.dis(data).view([-1,1])
+
+def get_noise(n_samples, size, device='cuda'):
+    return torch.randn(n_samples, size, device=device)
