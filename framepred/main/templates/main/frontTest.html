@@ -6,9 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .main{
+        width: 100%;
+        align-items: center;
+    }
+</style>
 <body>
-    Hello World<br>
-    {{data}}
-    <img src="{{ data.real_output }}" alt="">
-</body>
+    <!-- Hello World<br>
+    {{data}} -->
+    <div class="main">
+        <h3>Generated</h3>
+        {% for i in data.real_input %}
+        <img src="{{ i }}" alt="">
+        {% endfor %}
+        {% for i in data.frames %}
+        <img src="{{ i }}" alt="">
+        {% endfor %}
+        <br><hr>
+        <h3>Real</h3>
+        {% for i in data.real_input %}
+        <img src="{{ i }}" alt="">
+        {% endfor %}
+        <img src="{{ data.real_output }}" alt="">
+        <br><hr>
+        <h3>Side by Side</h3>
+        <table>
+            <tr>
+                <th>Real</th>
+                <th>Generated</th>
+            </tr>
+            <th>
+                <img src="{{ data.real_input.8 }}" alt="">
+            </th>
+            <th>
+                <img src="{{ data.real_output }}" alt="">
+            </th>
+        </table>
+        <br><hr>
+        {{data}}
+    </div>
+</body> 
 </html>
