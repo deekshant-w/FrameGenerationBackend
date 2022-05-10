@@ -11,6 +11,24 @@
         width: 100%;
         align-items: center;
     }
+    .v1 {
+        top: 52px;
+        border-left: 1px solid red;
+        height: 67px;
+        display: inline;
+        padding: 5px;
+        position: absolute;
+        left: 71.1%;
+    }
+    .v2 {
+        top: 100px;
+        border-left: 1px solid red;
+        height: 190px;
+        display: inline;
+        padding: 5px;
+        position: absolute;
+        left: 71.1%;
+    }
 </style>
 <body>
     <!-- Hello World<br>
@@ -19,7 +37,7 @@
         <h3>Generated</h3>
         {% for i in data.real_input %}
         <img src="{{ i }}" alt="">
-        {% endfor %}
+        {% endfor %}<div class="v1"></div>
         {% for i in data.frames %}
         <img src="{{ i }}" alt="">
         {% endfor %}
@@ -27,7 +45,7 @@
         <h3>Real</h3>
         {% for i in data.real_input %}
         <img src="{{ i }}" alt="">
-        {% endfor %}
+        {% endfor %}<div class="v2"></div>
         <img src="{{ data.real_output }}" alt="">
         <br><hr>
         <h3>Side by Side</h3>
@@ -44,7 +62,7 @@
             </th>
         </table>
         <br><hr>
-        {{data}}
+        <!-- {{data}} -->
     </div>
 </body> 
 </html>
